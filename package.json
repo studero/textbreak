@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "grunt": "~0.4.4",
+    "grunt-cli": "~0.1.13",
     "grunt-autoprefixer": "~0.7.2",
     "grunt-wiredep": "~1.8.0",
     "grunt-concurrent": "~0.5.0",
@@ -77,7 +78,7 @@
   },
   "scripts": {
     "start": "node server/app.js",
-    "test": "grunt test",
+    "test": "node_modules/grunt-cli/bin/grunt test",
     "update-webdriver": "node node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update"
   },
   "private": true
