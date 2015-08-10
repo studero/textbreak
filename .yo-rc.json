@@ -12,7 +12,7 @@
       "babel": false,
       "js": true,
       "html": true,
-      "sass": true,
+      "css": true,
       "uirouter": true,
       "bootstrap": true,
       "uibootstrap": true
@@ -31,7 +31,7 @@
     "extensions": [
       "js",
       "html",
-      "scss"
+      "css"
     ],
     "directiveSimpleTemplates": "",
     "directiveComplexTemplates": "",
