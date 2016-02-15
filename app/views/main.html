@@ -1,0 +1,80 @@
+<!--<div ng-include="'components/navbar/navbar.html'"></div>-->
+
+<header class="hero-unit">
+  TextBreak
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="textbreak-col col-md-2 col-lg-2 col-sm-2">
+      <div class="elements" style="height: {{pagesHeight}}px;">
+        <div class="standard-button" ng-click="addElement()" style="width: 100px;">Add New Text Element</div>
+        <div class="element-list" ng-repeat="element in elements | filter: withoutPosition">
+          <div class="text-element" ng-drag="true" ng-drag-data="element" ng-drag-success="onDragSuccess($data,$event)" style="background-color: {{element.background}};">
+            {{element.title}}
+            <div class="button" ng-click="editElement(element)" style="width: 40px;">edit</div>
+          </div>
+        </div>
+        <div class="element-editor" ng-show="currentElement != undefined">
+          <b>Update Text Element</b>
+          <br /> Title:
+          <input ng-model="currentElement.title" />
+          <br /> Background Color:
+          <input class="colorpicker" value="{{currentElement.background}}" />
+          <br /> Grid:
+          <input ng-model="currentElement.grid" />
+          <br /> Layout:
+          <div style="position: relative;">
+            <div ng-repeat="x in layoutEditorGrid">
+              <div ng-repeat="y in layoutEditorGrid">
+                <div class="layout-grid {{layoutClass(x, y)}}" ng-click="toggleLayout(x, y)" style="position: absolute; top: {{y * layoutEditorGridSize}}px; left: {{x * layoutEditorGridSize}}px; width: {{layoutEditorGridSize}}px; height: {{layoutEditorGridSize}}px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="textbreak-col col-md-8 col-lg-8 col-sm-8">
+      <div class="pages" style="height: {{pagesHeight}}px;">
+        <div ng-repeat="page in pages" style="float: left;">
+          <div class="page-control" style="width:{{page.width}}px;">
+            <div class="button" ng-show="page.grid == 4" ng-click="setGrid(page, 3)" style="width: 40px;">3-grid</div>
+            <div class="button" ng-show="page.grid == 3" ng-click="setGrid(page, 4)" style="width: 40px;">4-grid</div>
+            <div class="button" ng-click="addPageBefore(page)" style="width: 50px;">+ before</div>
+            <div class="button" ng-click="addPageAfter(page)" style="width: 50px;">+ after</div>
+          </div>
+          <div class="page-view" style="width:{{page.width + 8}}px; height: {{page.height + 8}}px; position: relative;">
+            <div ng-repeat="y in getGrid(page.grid)">
+              <div ng-repeat="x in getGrid(page.grid)">
+                <div ng-drop="true" ng-drop-success="onDropComplete($data,$event,page,x,y)" class="drop-grid" style="position:absolute; top: {{page.height / page.grid * y}}px; left: {{page.width / page.grid * x}}px; width: {{page.width / page.grid}}px; height: {{page.height / page.grid}}px; ">
+                  &nbsp;
+                </div>
+              </div>
+            </div>
+            <div ng-repeat="element in elements | filter: withinPage(page)">
+              <div ng-repeat="l in element.layout">
+                <div class="element" title="{{element.title}}" style="background-color: {{element.background}}; position: absolute; top: {{page.height / element.grid * (element.position.row + l.y)}}px; left: {{page.width / element.grid * (element.position.column + l.x)}}px; height: {{page.height / element.grid}}px; width: {{page.width / element.grid}}px;">
+                </div>
+              </div>
+              <div class="remove-button" ng-click="removeElement(element)" style="width: 20px; position: absolute; top: {{page.height / element.grid * (element.position.row + l.y)}}px; left: {{page.width / element.grid * (element.position.column + l.x)}}px;">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="textbreak-col col-md-2 col-lg-2 col-sm-2">
+      <div class="tabs">
+        <div class="tab" ng-class="{{currentTab == 'toc' ? 'active' : ''}}" ng-click="setTab(toc)" style="width: 40px;">TOC</div>
+        <div class="tab" ng-class="{{currentTab == 'code' ? 'active' : ''}}" ng-click="setTab(code)" style="width: 40px;">Code</div>
+      </div>
+      <div></div>
+      <div class="code">
+        Elements:
+        <textarea style="width: 100%; height: 200px;" ng-model="elementsJson" ng-keyup="elementsJsonKeyUp()" /> Pages:
+        <textarea style="width: 100%; height: 200px;" ng-model="pagesJson" ng-keyup="pagesJsonKeyUp()" />
+      </div>
+    </div>
+  </div>
+</div>

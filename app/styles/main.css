@@ -1,0 +1,153 @@
+.thing-form {
+    margin: 20px 0;
+}
+
+.hero-unit {
+    position: relative;
+    padding: 5px 5px;
+    color: #F5F5F5;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    background: #4393B9;
+    font-size: 18px;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 70px;
+    border-top: 1px solid #E5E5E5;
+}
+
+.navbar-text {
+    margin-left: 15px;
+}
+
+.textbreak-col {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.page-control {
+    font-size: 9px;
+    text-align: center;
+    align-content: center;
+    height: 14px; 
+    padding: 3px;    
+}
+
+.page-control .button {
+    border: 1px solid #cccccc;
+    background-color: #E5E5E5;
+    padding-top: 1px;
+    cursor: pointer;
+    float: left;
+}
+
+.page-view {
+	margin: 3px;
+	border:4px solid #4393B9;
+}
+
+.page-view .element {
+	border:0px solid #4393B9;
+    font-size: 9px;
+    padding: 2px;
+}
+
+.remove-button {
+    padding: 1px;
+    cursor: pointer;
+    float: left;
+}
+
+.drop-grid {
+    border:1px dashed #cccccc;
+}
+
+.drag-enter {
+    border:2px solid #4393B9;
+}
+
+.element-list .text-element {
+    border: 1px solid #cccccc;
+    border-radius: 0px;
+    cursor: pointer;
+    margin-top: 2px;
+    padding: 4px;
+    font-size: 10px;
+}
+
+.element-list .text-element .button {
+    border: 1px solid #cccccc;
+    background-color: #E5E5E5;
+    padding: 1px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.standard-button {
+    border: 1px solid #cccccc;
+    background-color: #E5E5E5;
+    padding: 1px;
+    margin-top: 2px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 10px;
+}
+
+.element-editor {
+    padding: 5px;
+    font-size: 10px;
+}
+
+.element-editor input {
+    border: 1px solid #cccccc;
+    font-size: 10px;
+}
+
+.code textarea {
+    border: 1px solid #cccccc;
+    font-size: 10px;
+}
+
+.code {
+    padding: 2px;
+    font-size: 10px;
+}
+
+.pages {
+    overflow: auto;
+}
+
+.elements {
+    overflow: auto;
+}
+
+.layout-grid {
+    border: 1px solid #cccccc;
+    cursor: pointer;
+}
+
+.layout-active {
+    background-color: #010101;
+}
+
+.tabs {
+    height: 22px;
+}
+
+.tab {
+    border: 1px solid #cccccc;
+    background-color: #E5E5E5;
+    padding: 1px;
+    margin-top: 2px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 10px;
+    float: left;
+}
+
+.tab .active {
+    background-color: #898989;
+}
